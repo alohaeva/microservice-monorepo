@@ -1,7 +1,7 @@
 {
-  "name": "microservices-monorepo",
+  "name": "api-gateway",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/microservices-monorepo/src",
+  "sourceRoot": "apps/api-gateway/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -10,15 +10,15 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "microservices-monorepo:build",
+        "buildTarget": "api-gateway:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "microservices-monorepo:build:development"
+          "buildTarget": "api-gateway:build:development"
         },
         "production": {
-          "buildTarget": "microservices-monorepo:build:production"
+          "buildTarget": "api-gateway:build:production"
         }
       }
     }
