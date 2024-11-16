@@ -1,34 +1,22 @@
 # Microservices Monorepo
 
-## Run tasks
+### Plan
 
-To run the dev server for your app, use:
+1. Domain Model
+2. System Operations
+3. Services APIs
+4. Overall Architecture
+5. Patterns
 
-```sh
-npx nx serve microservices-monorepo
-```
+## Patterns
 
-To create a production bundle:
+### API Gateway
 
-```sh
-npx nx build microservices-monorepo
-```
+#### Features
 
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project microservices-monorepo
-```
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/nest:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/node:lib mylib
-```
-
+1. Aggregation
+2. Rate Limiting
+3. Load Distribution
+4. Service Discovery
+5. Authentication
+6. Authorization
