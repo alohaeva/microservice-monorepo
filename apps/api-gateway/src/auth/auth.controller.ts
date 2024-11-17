@@ -1,5 +1,7 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Body, Controller, Inject, Post, UsePipes } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { CreateToken, createTokenSchema } from '@microservices-monorepo/interfaces';
+import { ZodPipe } from '../pipes/zod.pipe';
 
 @Controller('auth')
 export class AuthController {
@@ -7,11 +9,10 @@ export class AuthController {
     @Inject() private readonly authService: AuthService,
   ) {}
 
-  @Get('token')
-  async getToken() {
-    const token = await this.authService.getToken();
-
-    console.log(token);
+  @Post('token')
+  @UsePipes(new ZodPipe(createTokenSchema))
+  async getToken(@Body() body: CreateToken) {
+    const token = await this.authService.getToken(body);
 
     return {
       token
