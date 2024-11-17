@@ -3,18 +3,23 @@ import { NestFactory } from '@nestjs/core';
 import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 
 import { AppModule } from './app/app.module';
-import { MessagePattern } from '@nestjs/microservices';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
 
-  const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    AppModule,
+  const configService = app.get(ConfigService);
+
+  app.connectMicroservice<MicroserviceOptions>(
     {
       transport: Transport.TCP,
+      options: {
+        port: configService.get('PORT')
+      }
     },
   );
 
-  await app.listen();
+  await app.startAllMicroservices();
 
   Logger.log(
     `🚀 Auth Service is running`

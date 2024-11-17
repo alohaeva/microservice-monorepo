@@ -15,7 +15,8 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "api-gateway:build:development"
+          "buildTarget": "api-gateway:build:development",
+          "port": 9999
         },
         "production": {
           "buildTarget": "api-gateway:build:production"

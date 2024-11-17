@@ -8,6 +8,8 @@
 4. Overall Architecture
 5. Patterns
 
+## Communication Patterns
+
 ## Patterns
 
 ### API Gateway
