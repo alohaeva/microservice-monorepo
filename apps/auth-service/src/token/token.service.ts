@@ -53,7 +53,7 @@ export class TokenService {
     );
   }
 
-  verifyToken<T>(token: string): VerifyTokenResult<T> {
+  validateToken<T>(token: string): VerifyTokenResult<T> {
     try {
       const secret = this.configService.get<string>('JWT_SECRET');
 
