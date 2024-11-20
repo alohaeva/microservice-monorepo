@@ -21,6 +21,10 @@
           "buildTarget": "auth-service:build:production"
         }
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f apps/auth-service/Dockerfile . -t auth-service"
     }
   }
 }

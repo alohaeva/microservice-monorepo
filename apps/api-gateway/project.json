@@ -22,6 +22,10 @@
           "buildTarget": "api-gateway:build:production"
         }
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f apps/api-gateway/Dockerfile . -t api-gateway"
     }
   }
 }

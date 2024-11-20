@@ -13,7 +13,8 @@ import { AuthService } from './auth.service';
         useFactory: async (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            port: configService.get('AUTH_SERVICE_PORT'),
+            host: configService.get<string>('AUTH_SERVICE_HOST'),
+            port: configService.get<number>('AUTH_SERVICE_PORT'),
           },
         }),
         inject: [ConfigService],
